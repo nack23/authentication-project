@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    display:flex;
+    background:#f4f6f9;
+}
+
+/* Sidebar */
+.sidebar{
+    width:250px;
+    height:100vh;
+    background:#111827;
+    color:white;
+    padding:20px;
+    position:fixed;
+}
+
+.sidebar h2{
+    margin-bottom:30px;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:10px;
+}
+
+.sidebar a:hover{
+    background:#1f2937;
+}
+
+/* Main Content */
+.main{
+    margin-left:250px;
+    width:100%;
+}
+
+/* Topbar */
+.topbar{
+    background:white;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Cards */
+.cards{
+    padding:25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+/* Table */
+.table-container{
+    padding:25px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+th, td{
+    padding:15px;
+    text-align:left;
+}
+
+th{
+    background:#111827;
+    color:white;
+}
+
+tr:nth-child(even){
+    background:#f2f2f2;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .sidebar{
+        width:200px;
+    }
+    .main{
+        margin-left:200px;
+    }
+}
+
+@media(max-width:600px){
+    .sidebar{
+        position:absolute;
+        left:-250px;
+    }
+    .main{
+        margin-left:0;
+    }
+
+   .hash-box{
+    margin:30px auto;
+    max-width:900px;
+    background:linear-gradient(135deg,#ffffff,#f3f4f6);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.12);
+    word-break: break-all;
+    position:relative;
+    overflow:hidden;
+}
+
+/* Glow effect */
+.hash-box::before{
+    content:"";
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:rgba(102,126,234,0.15);
+    border-radius:50%;
+    top:-60px;
+    right:-60px;
+}
+
+.hash-title{
+    font-size:20px;
+    font-weight:600;
+    color:#111827;
+    margin-bottom:15px;
+    letter-spacing:0.5px;
+}
+
+.hash-value{
+    font-family: monospace;
+    background:#111827;
+    color:#00ff9d;
+    padding:15px;
+    border-radius:12px;
+    font-size:15px;
+    overflow-x:auto;
+}
+
+/* Hover Effect Desktop */
+.hash-box:hover{
+    transform:translateY(-5px);
+    transition:0.3s ease;
+}
+
+/* Tablet */
+@media(max-width:900px){
+    .hash-box{
+        margin:20px;
+        padding:20px;
+    }
+}
+
+/* Mobile */
+@media(max-width:600px){
+    .hash-box{
+        margin:15px;
+        padding:15px;
+    }
+
+    .hash-title{
+        font-size:16px;
+    }
+
+    .hash-value{
+        font-size:13px;
+        padding:12px;
+    }
+}
+
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>My Dashboard</h2>
+    <a href="#">Home</a>
+    <a href="#">Profile</a>
+    <a href="#">Messages</a>
+    <a href="#">Settings</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+    <!-- Topbar -->
+    <div class="topbar">
+        <h2>Welcome <%= username %> 👋</h2>
+        <div>User Panel</div>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+        <div class="card">
+            <h3>Total Users</h3>
+            <p>1,245</p>
+        </div>
+
+        <div class="card">
+            <h3>Messages</h3>
+            <p>342</p>
+        </div>
+
+        <div class="card">
+            <h3>Revenue</h3>
+            <p>$12,340</p>
+        </div>
+
+        <div class="card">
+            <h3>Orders</h3>
+            <p>89</p>
+        </div>
+        
+    </div>
+
+    <div class="hash-box">
+         <p class="hash-title">🔐 Your Hashed Password</p>
+        <p class="hash-value"><%= hashpassword %></p>
+   </div>
+
+
+    <!-- Table -->
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td><%= username %></td>
+                <td><%= email %></td>
+                <td>Active</td>
+            </tr>
+
+            <tr>
+                <td>Qais</td>
+                <td>qais@email.com</td>
+                <td>Inactive</td>
+            </tr>
+
+            <tr>
+                <td>Rahul</td>
+                <td>rahul@email.com</td>
+                <td>Inactive</td>
+            </tr>
+
+            <tr>
+                <td>Ali</td>
+                <td>ali@email.com</td>
+                <td>Inactive</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

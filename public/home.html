@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Page</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#f4f6fb;
+}
+
+/* Navbar */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 50px;
+  background:#4f46e5;
+  color:white;
+}
+
+nav h2{
+  font-weight:bold;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+nav ul li a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* Hero Section */
+.hero{
+  position:relative;
+  height:90vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  overflow:hidden;
+  color:white;
+  background:linear-gradient(135deg,#6366f1,#06b6d4);
+}
+
+/* Content Above Animation */
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero h1{
+  font-size:48px;
+  margin-bottom:15px;
+}
+
+.hero p{
+  font-size:18px;
+  margin-bottom:25px;
+}
+
+.hero button{
+  padding:12px 25px;
+  border:none;
+  border-radius:8px;
+  background:white;
+  color:#4f46e5;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.hero button:hover{
+  transform:scale(1.05);
+}
+
+/* Animated Background Container */
+.hero-bg span{
+  position:absolute;
+  display:block;
+  width:300px;
+  height:300px;
+  background:rgba(255,255,255,0.08);
+  border-radius:50%;
+  animation:float 20s linear infinite;
+}
+
+/* Different Positions */
+.hero-bg span:nth-child(1){
+  left:-100px;
+  top:-100px;
+}
+
+.hero-bg span:nth-child(2){
+  right:-120px;
+  bottom:-120px;
+  animation-duration:25s;
+}
+
+.hero-bg span:nth-child(3){
+  left:40%;
+  top:60%;
+  animation-duration:18s;
+}
+
+/* Floating Animation */
+@keyframes float{
+  0%{
+    transform:translateY(0px) rotate(0deg);
+  }
+  50%{
+    transform:translateY(-60px) rotate(180deg);
+  }
+  100%{
+    transform:translateY(0px) rotate(360deg);
+  }
+}
+
+
+/* Features */
+.features{
+  padding:60px 20px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  text-align:center;
+}
+
+.card h3{
+  margin-bottom:10px;
+  color:#4f46e5;
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#4f46e5;
+  color:white;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+  nav{
+    padding:15px 20px;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+  <h2>MyApp</h2>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/login">Login</a></li>
+    <li><a href="/register">Register</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  
+  <div class="hero-bg">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="hero-content">
+    <h1>Welcome to My App</h1>
+    <p>Secure Authentication System with Modern UI</p>
+    <button onclick="location.href='/register'">Get Started</button>
+  </div>
+
+</section>
+
+
+<!-- Features -->
+<section class="features">
+
+  <div class="card">
+    <h3>Secure Login</h3>
+    <p>JWT Based Authentication System</p>
+  </div>
+
+  <div class="card">
+    <h3>Fast Performance</h3>
+    <p>Optimized Node.js Backend</p>
+  </div>
+
+  <div class="card">
+    <h3>Responsive UI</h3>
+    <p>Works Perfectly On Mobile & Desktop</p>
+  </div>
+
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 MyApp | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

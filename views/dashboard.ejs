@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    display:flex;
+    background:#f4f6f9;
+}
+
+/* Sidebar */
+.sidebar{
+    width:250px;
+    height:100vh;
+    background:#111827;
+    color:white;
+    padding:20px;
+    position:fixed;
+    left:0;
+    top:0;
+    transition:0.3s ease;
+    z-index:1000;
+}
+
+.sidebar h2{
+    margin-bottom:30px;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:10px;
+}
+
+.sidebar a:hover{
+    background:#1f2937;
+}
+
+/* Main Content */
+.main{
+    margin-left:250px;
+    width:100%;
+    transition:0.3s ease;
+}
+
+/* Topbar */
+.topbar{
+    background:white;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Hamburger Button */
+.menu-btn{
+    display:none;
+    font-size:24px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    margin-right:10px;
+}
+
+/* Cards */
+.cards{
+    padding:25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* Hash Card */
+.hash-box{
+    margin:30px auto;
+    max-width:900px;
+    background:linear-gradient(135deg,#ffffff,#f3f4f6);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.12);
+    word-break: break-all;
+}
+
+.hash-title{
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.hash-value{
+    font-family: monospace;
+    background:#111827;
+    color:#00ff9d;
+    padding:15px;
+    border-radius:12px;
+    overflow-x:auto;
+}
+
+/* Table */
+.table-container{
+    padding:25px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+th, td{
+    padding:15px;
+    text-align:left;
+}
+
+th{
+    background:#111827;
+    color:white;
+}
+
+tr:nth-child(even){
+    background:#f2f2f2;
+}
+
+/* Tablet */
+@media(max-width:768px){
+    .sidebar{
+        width:220px;
+    }
+    .main{
+        margin-left:220px;
+    }
+}
+
+/* Mobile */
+@media(max-width:600px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    .sidebar{
+        left:-260px;
+    }
+
+    .sidebar.active{
+        left:0;
+    }
+
+    .main{
+        margin-left:0;
+    }
+
+    .hash-box{
+        margin:15px;
+        padding:15px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <h2>My Dashboard</h2>
+    <a href="#">Home</a>
+    <a href="#">Profile</a>
+    <a href="#">Messages</a>
+    <a href="#">Settings</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+    <!-- Topbar -->
+    <div class="topbar">
+
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+
+        <h2>Welcome <%= username %> 👋</h2>
+        <div>User Panel</div>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+        <div class="card">
+            <h3>Total Users</h3>
+            <p>1,245</p>
+        </div>
+
+        <div class="card">
+            <h3>Messages</h3>
+            <p>342</p>
+        </div>
+
+        <div class="card">
+            <h3>Revenue</h3>
+            <p>$12,340</p>
+        </div>
+
+        <div class="card">
+            <h3>Orders</h3>
+            <p>89</p>
+        </div>
+    </div>
+
+    <!-- Hash Card -->
+    <div class="hash-box">
+        <p class="hash-title">🔐 Your Hashed Password</p>
+        <p class="hash-value"><%= hashpassword %></p>
+    </div>
+
+    <!-- Table -->
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td><%= username %></td>
+                <td><%= email %></td>
+                <td>Active</td>
+            </tr>
+
+            
+            <tr>
+                <td>Qais</td>
+                <td>qais@email.com</td>
+                <td>Inactive</td>
+            </tr>
+
+            <tr>
+                <td>Rahul</td>
+                <td>rahul@email.com</td>
+                <td>Inactive</td>
+            </tr>
+
+            <tr>
+                <td>Ali</td>
+                <td>ali@email.com</td>
+                <td>Inactive</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<script>
+function toggleSidebar(){
+    document.getElementById("sidebar").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

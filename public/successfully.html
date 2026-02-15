@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Success</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#f4f6fb;
+}
+
+/* Navbar */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 50px;
+  background:#4f46e5;
+  color:white;
+}
+
+nav h2{
+  font-weight:bold;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+nav ul li a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* Success Section */
+.success{
+  height:85vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg,#22c55e,#16a34a);
+  padding:20px;
+}
+
+.success-box{
+  background:white;
+  padding:40px;
+  border-radius:15px;
+  text-align:center;
+  max-width:420px;
+  width:100%;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.success-box h1{
+  color:#16a34a;
+  margin-bottom:10px;
+}
+
+.success-box p{
+  color:#555;
+  margin-bottom:25px;
+}
+
+/* Buttons */
+.btn{
+  display:block;
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
+  text-decoration:none;
+  color:white;
+}
+
+.login{
+  background:#3b82f6;
+}
+
+.home{
+  background:#6366f1;
+}
+
+.btn:hover{
+  opacity:0.9;
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:15px;
+  background:#4f46e5;
+  color:white;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  nav{
+    padding:15px 20px;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+  <h2>MyApp</h2>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/login">Login</a></li>
+    <li><a href="/register">Register</a></li>
+  </ul>
+</nav>
+
+<!-- Success Section -->
+<section class="success">
+  <div class="success-box">
+    <h1>✅ Registration Successful</h1>
+    <p>Your account has been created successfully.</p>
+
+    <a href="/login" class="btn login">Go To Login</a>
+    <a href="/" class="btn home">Go To Home</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 MyApp | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
